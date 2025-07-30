@@ -1,18 +1,18 @@
 plugins {
-    id 'application'
+    id 'application'  // 플러그인 장착!
+    // id 'java' // application에 java가 포함되어 있기 때문에 java를 장착 안해도 된다!
 }
 
 repositories {
-    mavenCentral()
+    mavenCentral() // 의존 라이브러리를 갖고 있는 중앙 저장소 서버의 주소를 지정한다.
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.1'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    implementation 'com.google.guava:guava:33.4.5-jre'
+dependencies {  // 라이브러리 이름 기록
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.12.1'  // 단위테스트 소스 파일을 컴파일, 실행 할 때 사용 / 테스트는 아래에
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'  // 단위테스트 소스 파일을 컴파일 할 때는 안쓰고 실행할 때 사용
 }
 
-java {
+java {  // 자바 플러그인 옵션 지정
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
@@ -23,9 +23,13 @@ application {
 }
 
 jar {
-    archiveFileName = 'myapp.jar'
+    archiveFileName = 'myapp.jar'  // 아카이브 파일 이름 설정
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.named('run') {
+    standardInput = System.in // 표준 입력을 시스템 입력으로 설정
 }

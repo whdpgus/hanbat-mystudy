@@ -13,6 +13,7 @@ repositories {
 
 dependencies {  // 라이브러리 이름 기록
     implementation 'org.springframework.boot:spring-boot-starter-web'  // 라이브러리를 묶어놓은 starter set
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.12.1'  // 단위테스트 소스 파일을 컴파일, 실행 할 때 사용 / 테스트는 아래에
